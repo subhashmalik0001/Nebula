@@ -1,0 +1,238 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============================================================
+   CSS CUSTOM PROPERTIES — CardCapture Design Tokens
+   ============================================================ */
+:root {
+  /* Backgrounds */
+  --bg:              #FFFFFF;
+  --bg-soft:         #F0F0F0;
+  --bg-mint:         #F2EFFC;
+  --bg-dark:         #0E0B1A;
+
+  /* Brand */
+  --primary:         #6A3EEB;
+  --primary-dark:    #4A25C9;
+  --primary-light:   #EDE8FC;
+
+  /* Text */
+  --ink:             #0A0A0A;
+  --ink-soft:        #6B6B6B;
+  --ink-faint:       #B0B0B0;
+
+  /* Utility */
+  --border:          #E5E5E5;
+  --white:           #FFFFFF;
+  --success:         #12A664;
+
+  /* Typography */
+  --font-display:    'Bricolage Grotesque', sans-serif;
+  --font-body:       'Inter', sans-serif;
+}
+
+/* ============================================================
+   BASE RESET & DEFAULTS
+   ============================================================ */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--ink);
+  background-color: var(--bg);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ============================================================
+   DISPLAY TYPOGRAPHY — Bricolage Grotesque
+   ============================================================ */
+h1, h2, h3, h4, .font-display {
+  font-family: var(--font-display);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 0.98;
+}
+
+h1 {
+  font-size: clamp(48px, 7vw, 88px);
+  line-height: 0.98;
+}
+
+h2 {
+  font-size: clamp(36px, 5vw, 64px);
+  line-height: 1.0;
+}
+
+h3 {
+  font-size: clamp(24px, 3vw, 36px);
+  line-height: 1.1;
+}
+
+/* ============================================================
+   BODY / UI TYPOGRAPHY — Inter
+   ============================================================ */
+p, a, button, input, label, span {
+  font-family: var(--font-body);
+}
+
+.text-body-lg {
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+.text-body {
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.text-eyebrow {
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+/* ============================================================
+   CUSTOM SCROLLBAR
+   ============================================================ */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: var(--bg-soft); }
+::-webkit-scrollbar-thumb { background: var(--primary); border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: var(--primary-dark); }
+
+/* ============================================================
+   SELECTION
+   ============================================================ */
+::selection {
+  background: var(--primary-light);
+  color: var(--primary);
+}
+
+/* ============================================================
+   FOCUS RING
+   ============================================================ */
+*:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 3px;
+}
+
+/* ============================================================
+   KEYFRAMES
+   ============================================================ */
+
+/* Pulse for live indicator dot */
+@keyframes livePulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%       { opacity: 0.6; transform: scale(1.15); }
+}
+
+/* Soft ambient float for hero visual */
+@keyframes floatY {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-12px); }
+}
+
+/* Orb ambient pulsing */
+@keyframes orbPulse {
+  0%, 100% { opacity: 0.18; transform: scale(1); }
+  50%       { opacity: 0.28; transform: scale(1.06); }
+}
+
+/* Fade up — used as CSS fallback where Framer not loaded */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Marquee scroll for press strip */
+@keyframes marquee {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* ============================================================
+   UTILITY CLASSES
+   ============================================================ */
+
+.animate-live-pulse {
+  animation: livePulse 2s ease-in-out infinite;
+}
+
+.animate-float {
+  animation: floatY 4s ease-in-out infinite;
+}
+
+.animate-orb {
+  animation: orbPulse 5s ease-in-out infinite;
+}
+
+.animate-marquee {
+  animation: marquee 28s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+/* Scrollbar hide utility */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* Dot grid pattern */
+.dot-grid {
+  background-image: radial-gradient(circle, #6A3EEB 1px, transparent 1px);
+  background-size: 8px 8px;
+}
+
+.dot-grid-white {
+  background-image: radial-gradient(circle, rgba(255,255,255,0.8) 1px, transparent 1px);
+  background-size: 16px 16px;
+}
+
+/* Glass panel */
+.glass {
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+.glass-dark {
+  background: rgba(14, 11, 26, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+/* ============================================================
+   REDUCED MOTION
+   ============================================================ */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .animate-live-pulse,
+  .animate-float,
+  .animate-orb,
+  .animate-marquee {
+    animation: none !important;
+  }
+}
