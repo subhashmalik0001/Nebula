@@ -91,13 +91,12 @@ function PhoneStep({ stepLabel, title, description, image, alt, delay = 0 }: Pho
         />
 
         {/* Real app screenshot — fills the card width, aligned to top, cut in half at bottom */}
-        <div className="relative w-full h-[280px] overflow-hidden drop-shadow-2xl">
+        <div className="relative w-[650px] h-[400px] overflow-hidden drop-shadow-2xl">
           <Image
             src={image}
             alt={alt}
             fill
-            className="object-cover object-top transition-transform duration-500 group-hover:scale-[1.02]"
-            draggable={false}
+            className="object-cover object-top -translate-x-8"
           />
         </div>
       </div>
@@ -132,8 +131,8 @@ export default function HowItWorks() {
       <div
         className="absolute top-0 left-1/2 pointer-events-none"
         style={{
-          width: 900,
-          height: 500,
+          width: 1000,
+          height: 900,
           background: 'radial-gradient(ellipse, rgba(106,62,235,0.22) 0%, transparent 65%)',
           filter: 'blur(60px)',
           transform: 'translateX(-50%)',

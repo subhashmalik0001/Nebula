@@ -40,11 +40,10 @@ export default function FinalCTA() {
             <Image
               src="/images/herosec2.png"
               alt="Nebula app — contacts and scanning screens"
-              width={800}
-              height={680}
-              className="relative z-10 object-contain drop-shadow-2xl w-full max-w-[800px]"
+              width={1400}
+              height={1300}
+              className="relative z-10 object-contain w-[900px] h-auto drop-shadow-2xl"
               priority
-              draggable={false}
             />
           </motion.div>
         </motion.div>
@@ -94,9 +93,9 @@ export default function FinalCTA() {
           className="flex flex-wrap items-center justify-center gap-x-8 gap-y-3"
         >
           {[
-            { icon: CheckCircle, label: 'Free to download',     color: '#12A664' },
-            { icon: ScanLine,    label: 'Scan 50 cards free',   color: '#6A3EEB' },
-            { icon: Users,       label: '50,000+ professionals', color: '#6A3EEB' },
+            { icon: CheckCircle, label: 'Free to download', color: '#12A664' },
+            { icon: ScanLine, label: 'Scan 50 cards free', color: '#6A3EEB' },
+            { icon: Users, label: '50,000+ professionals', color: '#6A3EEB' },
           ].map(({ icon: Icon, label, color }) => (
             <div key={label} className="flex items-center gap-2">
               <Icon style={{ color }} className="h-4 w-4 shrink-0" />
