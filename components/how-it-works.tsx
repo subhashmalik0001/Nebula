@@ -68,7 +68,7 @@ function PhoneStep({ stepLabel, title, description, image, alt, delay = 0 }: Pho
     >
       {/* Violet gradient card — screenshot sits inside */}
       <div
-        className="relative rounded-[32px] overflow-hidden mb-7 flex items-end justify-center"
+        className="relative rounded-[32px] overflow-hidden mb-7 flex flex-col justify-end"
         style={{
           background: 'linear-gradient(145deg, #7C55F0 0%, #6A3EEB 45%, #4A25C9 100%)',
           aspectRatio: '4/5',
@@ -90,14 +90,13 @@ function PhoneStep({ stepLabel, title, description, image, alt, delay = 0 }: Pho
           aria-hidden="true"
         />
 
-        {/* Real app screenshot — fills the card from bottom, large and aligned */}
-        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 z-10 w-full px-1 translate-y-1 drop-shadow-2xl">
+        {/* Real app screenshot — fills the card width, aligned to top, cut in half at bottom */}
+        <div className="relative w-full h-[280px] overflow-hidden drop-shadow-2xl">
           <Image
             src={image}
             alt={alt}
-            width={400}
-            height={700}
-            className="w-full h-auto object-contain object-bottom"
+            fill
+            className="object-cover object-top transition-transform duration-500 group-hover:scale-[1.02]"
             draggable={false}
           />
         </div>

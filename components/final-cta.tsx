@@ -40,9 +40,9 @@ export default function FinalCTA() {
             <Image
               src="/images/herosec2.png"
               alt="Nebula app — contacts and scanning screens"
-              width={600}
-              height={520}
-              className="relative z-10 object-contain drop-shadow-2xl w-full max-w-[600px]"
+              width={800}
+              height={680}
+              className="relative z-10 object-contain drop-shadow-2xl w-full max-w-[800px]"
               priority
               draggable={false}
             />
